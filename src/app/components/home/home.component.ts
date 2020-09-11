@@ -82,8 +82,10 @@ export class HomeComponent implements OnInit {
       this.toastrService.error('Please fill all fields and try again.')
     } else {
       // Show the new form
-      console.log(document.getElementById('firstFormGroup'))
-      console.log(document.getElementById('secondFormGroup'))
+      let firstFormGroup = document.getElementById('firstFormGroup');
+      firstFormGroup.style.display = 'none'
+      let secondFormGroup = document.getElementById('secondFormGroup');
+      secondFormGroup.style.display = 'block'
     }
 
   }
