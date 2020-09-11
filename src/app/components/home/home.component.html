@@ -88,5 +88,50 @@
         Next
       </button>
     </form>
+
+    <form [formGroup]="fourthFormGroup" style="display: none;" id="fourthFormGroup">
+      <p>4/5</p>
+      <p> <b>Do you think to suggest our company to a friend or parent?</b></p>
+      <div id="form_group">
+        <input type="radio" name="suggest" id="suggest" formControlName="suggest" value="no"> No
+      </div>
+      
+      <div id="form_group">
+        <input type="radio" name="suggest" id="suggest" formControlName="suggest" value="maybe"> Maybe
+      </div>
+
+      <div id="form_group">
+        <input type="radio" name="suggest" id="suggest" formControlName="suggest" value="probably"> Probably
+      </div>
+
+      <div id="form_group">
+        <input type="radio" name="suggest" id="suggest" formControlName="suggest" value="sure"> 100% Sure
+      </div>
+      
+      <div id="form_group">
+        <textarea name="describe" id="describe" formControlName="describe">  </textarea>
+      </div>
+
+      <button class="prev_button" (click)="goToThird()">
+        Previous
+      </button>
+
+      <button class="next_button" (click)="goToFifth()">
+        Next
+      </button>
+    </form>
+
+    <form style="display: none;" id="fifthFormGroup">
+      <p>5/5</p>
+      <p> <b>Summary</b></p>
+
+      <button class="prev_button" (click)="goToFourth()">
+        Previous
+      </button>
+
+      <button class="next_button" (click)="submitFifth()">
+        Next
+      </button>
+    </form>
   </div>
 </div>

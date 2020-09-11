@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  fourthFormGroup: FormGroup;
+  fifthFormGroup;
   checked;
   gender;
 
@@ -38,6 +40,11 @@ export class HomeComponent implements OnInit {
 
     this.thirdFormGroup = new FormGroup({
       hear : new FormControl('', Validators.required),
+    })
+
+    this.fourthFormGroup = new FormGroup({
+      suggest: new FormControl('', Validators.required),
+      describe: new FormControl('', Validators.required)
     })
   }
 
@@ -104,7 +111,11 @@ export class HomeComponent implements OnInit {
   }
 
   goToSecond() {
+    let secondFormGroup = document.getElementById('secondFormGroup');
+    let thirdFormGroup = document.getElementById('thirdFormGroup');
 
+    secondFormGroup.style.display = 'block';
+    thirdFormGroup.style.display = 'none'
   }
 
   goToThird() {
@@ -121,7 +132,41 @@ export class HomeComponent implements OnInit {
   }
 
   goToFourth () {
-    
+    console.log(this.thirdFormGroup);
+    if(this.thirdFormGroup.status == 'INVALID') {
+      this.toastrService.error('Please ill all fields and try again.')
+    } else {
+      let thirdFormGroup = document.getElementById('thirdFormGroup');
+      let fourthFormGroup = document.getElementById('fourthFormGroup');
+
+      thirdFormGroup.style.display = 'none'
+      fourthFormGroup.style.display = 'block';
+    }
+  }
+
+  goToFifth() {
+    console.log(this.fourthFormGroup);
+    if(this.fourthFormGroup.status == 'INVALID') {
+      this.toastrService.error('Please ill all fields and try again.')
+    } else {
+      let fourthFormGroup = document.getElementById('fourthFormGroup');
+      let fifthFormGroup = document.getElementById('fifthFormGroup');
+
+      fifthFormGroup.style.display = 'block'
+      fourthFormGroup.style.display = 'none';
+    }
+  }
+
+  submitFifth() {
+    this.fifthFormGroup = {
+      ...this.firstFormGroup.value,
+      ...this.secondFormGroup.value,
+      ...this.thirdFormGroup.value,
+      ...this.fourthFormGroup.value
+    };
+
+
+    console.log(this.fifthFormGroup)
   }
 
 }
