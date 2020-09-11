@@ -73,7 +73,17 @@ input[type=text] {
     padding: 10px;
     border-radius: 5px;
     color: white;
-    width: 15%;
+    width: fit-content;
+}
+
+.prev_button {
+    float: left;
+    background-color: #434bdf;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    width: fit-content;
 }
 
 input.ng-invalid.ng-touched {

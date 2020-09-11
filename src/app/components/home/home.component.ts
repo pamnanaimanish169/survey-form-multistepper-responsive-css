@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class HomeComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
   checked;
   gender;
 
@@ -33,6 +34,10 @@ export class HomeComponent implements OnInit {
 
     this.secondFormGroup = new FormGroup({
       satisfaction : new FormControl('', Validators.required),
+    })
+
+    this.thirdFormGroup = new FormGroup({
+      hear : new FormControl('', Validators.required),
     })
   }
 
@@ -88,6 +93,35 @@ export class HomeComponent implements OnInit {
       secondFormGroup.style.display = 'block'
     }
 
+  }
+
+  goToFirst() {
+    let firstFormGroup = document.getElementById('firstFormGroup');
+    let secondFormGroup = document.getElementById('secondFormGroup');
+
+    secondFormGroup.style.display = 'none';
+    firstFormGroup.style.display = 'block'
+  }
+
+  goToSecond() {
+
+  }
+
+  goToThird() {
+    console.log(this.secondFormGroup)
+    if (this.secondFormGroup.status == 'INVALID') {
+      this.toastrService.error('Please ill all fields and try again.')
+    } else {
+      let secondFormGroup = document.getElementById('secondFormGroup');
+      secondFormGroup.style.display = 'none'
+
+      let thirdFormGroup = document.getElementById('thirdFormGroup');
+      thirdFormGroup.style.display = 'block'
+    }
+  }
+
+  goToFourth () {
+    
   }
 
 }

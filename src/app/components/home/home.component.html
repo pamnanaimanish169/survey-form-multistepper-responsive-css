@@ -33,10 +33,60 @@
     </form>
 
     <form [formGroup]="secondFormGroup" style="display: none;" id="secondFormGroup">
-      <input type="radio" name="" id="" formControlName="satisfaction">
-      <input type="radio" name="" id="" formControlName="satisfaction">
-      <input type="radio" name="" id="" formControlName="satisfaction">
-      <input type="radio" name="" id="" formControlName="satisfaction">
+      <p>2/5</p>
+      <p> <b>How do you rate your overall satisfaction about the service provided?</b></p>
+      <div id="form_group">
+        <input type="radio" name="satisfaction" id="satisfaction" formControlName="satisfaction" value="not-satisfied"> Not Satisfied
+      </div>
+      
+      <div id="form_group">
+        <input type="radio" name="satisfaction" id="satisfaction" formControlName="satisfaction" value="quite-satisfied"> Quite Satisfied
+      </div>
+      <div id="form_group">
+        <input type="radio" name="satisfaction" id="satisfaction" formControlName="satisfaction" value="satisfied"> Satisfied
+      </div>
+      <div id="form_group">
+        <input type="radio" name="satisfaction" id="satisfaction" formControlName="satisfaction" value="completely-satisfied"> Completely Satisfied
+      </div>
+      <div id="form_group">
+        <input type="radio" name="satisfaction" id="satisfaction" formControlName="satisfaction" value="extremely-satisfied"> Extremely Satisfied
+      </div>
+
+      <button class="prev_button" (click)="goToFirst()">
+        Previous
+      </button>
+
+      <button class="next_button" (click)="goToThird()">
+        Next
+      </button>
+    </form>
+
+    <form [formGroup]="thirdFormGroup" style="display: none;" id="thirdFormGroup">
+      <p>3/5</p>
+      <p> <b>How did you hear about our company?</b></p>
+      <div id="form_group">
+        <input type="checkbox" name="" id="" formControlName="hear"> Google Search Engine
+      </div>
+      <div id="form_group">
+        <input type="checkbox" name="" id="" formControlName="hear"> A friend of mine
+      </div>
+      <div id="form_group">
+        <input type="checkbox" name="" id="" formControlName="hear"> Print Advertise
+      </div>
+      <div id="form_group">
+        <input type="checkbox" name="" id="" formControlName="hear"> Newspaper
+      </div>
+      <div id="form_group">
+        <input type="checkbox" name="" id="" formControlName="hear"> Other
+      </div>
+
+      <button class="prev_button" (click)="goToSecond()">
+        Previous
+      </button>
+
+      <button class="next_button" (click)="goToFourth()">
+        Next
+      </button>
     </form>
   </div>
 </div>
