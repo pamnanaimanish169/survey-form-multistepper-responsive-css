@@ -65,4 +65,31 @@ input[type=text] {
     width: 15%;
     padding: 10px;
 }
+
+.next_button {
+    float: right;
+    background-color: #434bdf;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    width: 15%;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+select.ng-invalid.ng-touched {
+    border: 1px solid red !important;
+}
+
+input[type=radio].ng-invalid.ng-touched {
+    border: 1px solid red !important;
+}
+
+input[type=date].ng-invalid.ng-touched {
+    border: 1px solid red !important;
+}
+
 /* FORM END */

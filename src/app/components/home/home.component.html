@@ -4,15 +4,17 @@
     </div>
   </div>
   <div class="float_right">
-    <form action="">
+    <form [formGroup]="firstFormGroup" id="firstFormGroup">
       <p>1/5</p>
-      <p>Please fill with your details</p>
-      <div id="form_group"><input type="text" name="fname" id="fname" placeholder="First Name..."></div>
-      <div id="form_group"><input type="text" name="lname" id="lname" placeholder="Last Name..."> </div>
-      <div id="form_group"><input type="date" name="date" id="date" placeholder="Date"> </div>
+      <p> <b>Please fill with your details</b></p>
+      <div id="form_group">
+        <input type="text" name="fname" id="fname" placeholder="First Name..." formControlName="fname">
+      </div>
+      <div id="form_group"><input type="text" name="lname" id="lname" placeholder="Last Name..." formControlName="lname"> </div>
+      <div id="form_group"><input type="date" name="date" id="date" placeholder="Date" formControlName="date"> </div>
 
       <div id="form_group">
-          <select name="" id="country" aria-placeholder="Your Country">
+          <select name="" id="country" aria-placeholder="Your Country" formControlName="country">
             <option value="europe">Europe</option>
             <option value="usa">USA</option>
             <option value="india">India</option>
@@ -21,11 +23,20 @@
           </select>
       </div>
       <div id="form_group">
-        <input type="text" placeholder="Age" id="age">
-        <input type="radio" name="male" id="male" placeholder="Male"> Male
-        <input type="radio" name="female" id="female" placeholder="Female"> Female 
+        <input type="text" placeholder="Age" id="age" formControlName="age">
+        <input type="radio" name="gender" id="gender" placeholder="Male" value="male" (click)="getGender($event)" formControlName="gender"> Male
+        <input type="radio" name="gender" id="gender" placeholder="Female" value="female" (click)="getGender($event)" formControlName="gender"> Female 
       </div>
-      <div id="form_group"><input type="checkbox" name="terms_and_conditions" id="terms_and_conditions"> Please accept our <a href="">Terms and conditions</a>.</div>
+      <div id="form_group"><input type="checkbox" name="terms_and_conditions" id="terms" (click)="onChange($event)"> Please accept our <a href="">Terms and conditions</a>.</div>
+      <hr>
+      <button class="next_button" (click)="onSubmit()">Next</button>
+    </form>
+
+    <form [formGroup]="secondFormGroup" style="display: none;" id="secondFormGroup">
+      <input type="radio" name="" id="" formControlName="satisfaction">
+      <input type="radio" name="" id="" formControlName="satisfaction">
+      <input type="radio" name="" id="" formControlName="satisfaction">
+      <input type="radio" name="" id="" formControlName="satisfaction">
     </form>
   </div>
 </div>
