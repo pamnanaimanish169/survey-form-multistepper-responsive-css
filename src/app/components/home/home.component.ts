@@ -138,10 +138,12 @@ export class HomeComponent implements OnInit {
       this.toastrService.error('Please ill all fields and try again.')
     } else {
       let secondFormGroup = document.getElementById('secondFormGroup');
-      secondFormGroup.style.display = 'none'
-
       let thirdFormGroup = document.getElementById('thirdFormGroup');
-      thirdFormGroup.style.display = 'block'
+      let fourthFormGroup = document.getElementById('fourthFormGroup');
+
+      secondFormGroup.style.display = 'none';
+      thirdFormGroup.style.display = 'block';
+      fourthFormGroup.style.display = 'none';
     }
   }
 
@@ -153,9 +155,11 @@ export class HomeComponent implements OnInit {
       this.thirdFormGroup.controls.hear.patchValue(this.array)
       let thirdFormGroup = document.getElementById('thirdFormGroup');
       let fourthFormGroup = document.getElementById('fourthFormGroup');
+      let fifthFormGroup = document.getElementById('fifthFormGroup')
 
       thirdFormGroup.style.display = 'none'
       fourthFormGroup.style.display = 'block';
+      fifthFormGroup.style.display = 'none';
     }
   }
 
