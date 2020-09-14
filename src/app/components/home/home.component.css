@@ -109,3 +109,60 @@ input[type=date].ng-invalid.ng-touched {
     border-radius: 5px;
 }
 /* FORM END */
+
+/* Media Query START 768 * 1024 */
+@media (min-width:769px) and (max-device-width :1024px) {
+    /* Background START */
+    .background {
+        position: relative;
+        width: 100%;
+        height: 343px;
+        background-position: center;
+    }
+    /* Background END */
+
+    /* FORM START */
+    .float_right {
+        width: 90%;
+        position: absolute;
+        top: 50%;
+        transform: translateX(5%);
+        padding: 0;
+        float: none;
+        padding-top: 12%;
+    }
+
+    .float_right > form {
+        padding: 0;
+    }
+    /* FORM END */
+}
+/* Media Query  768 * 1024 END */
+
+/* Media Query START 360 * 720 */
+@media (min-width:361px) and (max-device-width :768px) {
+    /* Background START */
+    .background {
+        position: relative;
+        width: 100%;
+        height: 343px;
+        background-position: center;
+    }
+    /* Background END */
+
+    /* FORM START */
+    .float_right {
+        width: 90%;
+        position: absolute;
+        top: 50%;
+        transform: translateX(5%);
+        float: none;
+        padding-top: 12%;
+    }
+
+    .float_right > form {
+        padding: 0;
+    }
+    /* FORM END */
+}
+/* Media Query  360 * 720 END */
