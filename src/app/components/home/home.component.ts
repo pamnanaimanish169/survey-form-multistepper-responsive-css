@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
   secondAnswer = [];
   thirdAnswer;
 
-  constructor(private toastrService: ToastrService) { }
+  constructor(private toastrService: ToastrService, private router: Router) { }
 
   ngOnInit() {
     this.createForm();
@@ -185,26 +186,22 @@ export class HomeComponent implements OnInit {
     
     console.log(this.fifthFormGroup['hear'].length)
     for(let i = 0; i < this.fifthFormGroup['hear'].length; i++) {
-      console.log( this.fifthFormGroup['hear'][i].toString().replace('-', ' ').split(' ') )
       let secondAnswer = this.fifthFormGroup['hear'][i].toString().replaceAll('-', ' ').split(' ');
 
       for(let j = 0; j < secondAnswer.length; j++) {
         secondAnswer[j] = secondAnswer[j].charAt(0).toUpperCase() + secondAnswer[j].slice(1);
       }
-      console.log(secondAnswer.join(' '))
       this.secondAnswer.push(secondAnswer.join(' '))
     }
-
-    console.log(this.secondAnswer)
     this.thirdAnswer = this.fifthFormGroup['suggest']
-
-    console.log( this.firstAnswer )
-    console.log( this.secondAnswer )
-    console.log( this.thirdAnswer )
   }
 
   submitFifth() {
-    
+    console.log(this.fifthFormGroup)
+    this.toastrService.success('Details have been submitted. You will be redirected in 5 seconds.')
+    setTimeout(() => {
+      location.reload()
+    }, 5000)
   }
 
 }
