@@ -65,19 +65,19 @@
       <p>3/5</p>
       <p> <b>How did you hear about our company?</b></p>
       <div id="form_group">
-        <input type="checkbox" name="" id="" formControlName="hear"> Google Search Engine
+        <input type="checkbox" name="google-search-engine" id="google-search-engine" formControlName="hear" value="google-search-engine" (change)="onHear($event)"> Google Search Engine
       </div>
       <div id="form_group">
-        <input type="checkbox" name="" id="" formControlName="hear"> A friend of mine
+        <input type="checkbox" name="a-friend-of-mine" id="a-friend-of-mine" formControlName="hear" value="a-friend-of-mine" (change)="onHear($event)"> A friend of mine
       </div>
       <div id="form_group">
-        <input type="checkbox" name="" id="" formControlName="hear"> Print Advertise
+        <input type="checkbox" name="print-advertise" id="print-advertise" formControlName="hear" value="print-advertise" (change)="onHear($event)"> Print Advertise
       </div>
       <div id="form_group">
-        <input type="checkbox" name="" id="" formControlName="hear"> Newspaper
+        <input type="checkbox" name="newspaper" id="newspaper" formControlName="hear" value="newspaper" (change)="onHear($event)"> Newspaper
       </div>
       <div id="form_group">
-        <input type="checkbox" name="" id="" formControlName="hear"> Other
+        <input type="checkbox" name="other" id="hear" formControlName="hear" value="other" (change)="onHear($event)"> Other
       </div>
 
       <button class="prev_button" (click)="goToSecond()">
@@ -124,6 +124,22 @@
     <form style="display: none;" id="fifthFormGroup">
       <p>5/5</p>
       <p> <b>Summary</b></p>
+      <div id="form_group">
+        <p><b>How do you rate your overall satisfaction about the service provided?</b></p>
+        <p>{{firstAnswer}}</p>
+      </div>
+
+      <div id="form_group">
+        <p><b>How did you hear about our company?</b></p>
+        <p *ngFor="let item of secondAnswer">
+          {{item}}
+        </p>
+      </div>
+
+      <div id="form_group">
+        <p> <b>Do you think to suggest our company to a friend or parent?</b> </p>
+        <p> {{thirdAnswer | titlecase}} </p>
+      </div>
 
       <button class="prev_button" (click)="goToFourth()">
         Previous

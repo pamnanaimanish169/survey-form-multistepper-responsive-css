@@ -16,6 +16,10 @@ export class HomeComponent implements OnInit {
   fifthFormGroup;
   checked;
   gender;
+  array = [];
+  firstAnswer;
+  secondAnswer = [];
+  thirdAnswer;
 
   constructor(private toastrService: ToastrService) { }
 
@@ -46,6 +50,15 @@ export class HomeComponent implements OnInit {
       suggest: new FormControl('', Validators.required),
       describe: new FormControl('', Validators.required)
     })
+  }
+
+  onHear(event) {
+    if(event.target.checked == true) {
+      let value = document.getElementById(event.target.value)['value'];
+      this.array.push(value)
+      console.log(this.array)
+    }
+    // this.thirdFormGroup.controls.hear.patchValue(array);
   }
 
   onChange(event) {
@@ -136,6 +149,7 @@ export class HomeComponent implements OnInit {
     if(this.thirdFormGroup.status == 'INVALID') {
       this.toastrService.error('Please ill all fields and try again.')
     } else {
+      this.thirdFormGroup.controls.hear.patchValue(this.array)
       let thirdFormGroup = document.getElementById('thirdFormGroup');
       let fourthFormGroup = document.getElementById('fourthFormGroup');
 
@@ -155,9 +169,6 @@ export class HomeComponent implements OnInit {
       fifthFormGroup.style.display = 'block'
       fourthFormGroup.style.display = 'none';
     }
-  }
-
-  submitFifth() {
     this.fifthFormGroup = {
       ...this.firstFormGroup.value,
       ...this.secondFormGroup.value,
@@ -166,7 +177,34 @@ export class HomeComponent implements OnInit {
     };
 
 
-    console.log(this.fifthFormGroup)
+    let firstAnswer = this.fifthFormGroup['satisfaction'].toString().replace('-', ' ').split(' ');
+    for (let i = 0; i < firstAnswer.length; i++) {
+      firstAnswer[i] = firstAnswer[i].charAt(0).toUpperCase() + firstAnswer[i].slice(1)
+    }
+    this.firstAnswer = firstAnswer.join(' ')
+    
+    console.log(this.fifthFormGroup['hear'].length)
+    for(let i = 0; i < this.fifthFormGroup['hear'].length; i++) {
+      console.log( this.fifthFormGroup['hear'][i].toString().replace('-', ' ').split(' ') )
+      let secondAnswer = this.fifthFormGroup['hear'][i].toString().replaceAll('-', ' ').split(' ');
+
+      for(let j = 0; j < secondAnswer.length; j++) {
+        secondAnswer[j] = secondAnswer[j].charAt(0).toUpperCase() + secondAnswer[j].slice(1);
+      }
+      console.log(secondAnswer.join(' '))
+      this.secondAnswer.push(secondAnswer.join(' '))
+    }
+
+    console.log(this.secondAnswer)
+    this.thirdAnswer = this.fifthFormGroup['suggest']
+
+    console.log( this.firstAnswer )
+    console.log( this.secondAnswer )
+    console.log( this.thirdAnswer )
+  }
+
+  submitFifth() {
+    
   }
 
 }
